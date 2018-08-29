@@ -1,0 +1,40 @@
+<view class="page">
+  <view class="page__bd page__bd_spacing">
+    <view class='clear'></view>
+    <view class="kind-list">     
+      <block wx:for="{{list}}" >   
+        <block wx:if="{{index < 5}}">     
+          <view class="kind-list__item">
+              <view class="weui-flex kind-list__item-hd kind-list__item-hd_show">
+                <view class="weui-cell__bd">
+                    <view class="weui-flex__item">{{item[0]}}</view>
+                    <view class="weui-cell__ft">{{item[1]}}</view>
+                </view>              
+              </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="{{isHidden? 'kind-list__item-hidden': 'kind-list__item'}}">
+              <view class="weui-flex kind-list__item-hd kind-list__item-hd_show">
+                <view class="weui-cell__bd">
+                    <view class="weui-flex__item">{{item[0]}}</view>
+                    <view class="weui-cell__ft">{{item[1]}}</view>
+                </view>              
+              </view>
+          </view>
+        </block>
+      </block>
+      <block wx:if="{{isShowShowMore}}">
+        <view class="weui-panel__ft">
+            <view class="weui-cell weui-cell_access weui-cell_link" bindtap='toggle_show_more'>
+                <view class="weui-cell__bd">{{showMore}}</view> 
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+        </view>
+      </block>          
+    </view>
+    <view>    
+      <button class='scan-btn' bindtap='click_me'>{{buttonText}}</button>    
+    </view>
+  </view>
+</view>
